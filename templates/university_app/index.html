@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>University site home</h1>
+  <div>Welcome to our great website!</div>
+  <h2>Dynamic content</h2>
+  <div>
+    <p>Our university site has the following counts:</p>
+      <ul>
+        <li>Faculties: {{ num_faculty }}</li>
+        <li>Specializations: {{ num_specialization }}</li>
+        <li>Subjects: {{ num_subject }}</li>
+        <li>Student groups: {{ num_group }}</li>
+        <li>Teachers: {{ num_teacher }}</li>
+        <li>Students: {{ num_student }}</li>
+      </ul>
+  </div>
+{% endblock %}
