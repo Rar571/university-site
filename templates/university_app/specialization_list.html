@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Specializations list</h1>
+  {% if specialization_list %}
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Educational program</td>
+      </tr>
+      {% for specialization in specialization_list %}
+        <tr>
+          <td>{{ specialization.id }}</td>
+          <td>{{ specialization.name }}</td>
+          <td>{{ specialization.educational_program }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}

@@ -26,3 +26,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class StudentListView(generic.ListView):
     model = Student
+
+
+class TeacherListView(generic.ListView):
+    model = Teacher
+
+
+class SpecializationListView(generic.ListView):
+    model = Specialization

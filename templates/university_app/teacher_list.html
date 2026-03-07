@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Teachers list</h1>
+  {% if teacher_list %}
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Specialization</td>
+      </tr>
+      {% for teacher in teacher_list %}
+        <tr>
+          <td>{{ teacher.id }}</td>
+          <td>{{ teacher.name }}</td>
+          <td>{{ teacher.surname }}</td>
+          <td>{{ teacher.specialization }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no teachers!</p>
+  {% endif %}
+{% endblock %}
