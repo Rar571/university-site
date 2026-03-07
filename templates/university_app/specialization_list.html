@@ -12,7 +12,7 @@
       {% for specialization in specialization_list %}
         <tr>
           <td>{{ specialization.id }}</td>
-          <td>{{ specialization.name }}</td>
+          <td><a href="{% url "university_app:specialization-detail" pk=specialization.id %}">{{ specialization.name }}</a></td>
           <td>{{ specialization.educational_program }}</td>
         </tr>
       {% endfor %}

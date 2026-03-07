@@ -28,9 +28,21 @@ class StudentListView(generic.ListView):
     model = Student
 
 
+class StudentDetailView(generic.DetailView):
+    model = Student
+
+
 class TeacherListView(generic.ListView):
     model = Teacher
 
 
+class TeacherDetailView(generic.DetailView):
+    model = Teacher
+
+
 class SpecializationListView(generic.ListView):
+    model = Specialization
+
+
+class SpecializationDetailView(generic.DetailView):
     model = Specialization

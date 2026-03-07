@@ -6,13 +6,13 @@
     <table class="table">
       <tr>
         <td>ID</td>
-        <td>Name</td>
-        <td>Surname</td>
+        <td>First name</td>
+        <td>Last name</td>
         <td>Specialization</td>
       </tr>
       {% for teacher in teacher_list %}
         <tr>
-          <td>{{ teacher.id }}</td>
+          <td><a href="{% url "university_app:teacher-detail" pk=teacher.id %}">{{ teacher.id }}</a></td>
           <td>{{ teacher.name }}</td>
           <td>{{ teacher.surname }}</td>
           <td>{{ teacher.specialization }}</td>

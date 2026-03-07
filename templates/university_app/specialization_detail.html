@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ specialization.name }}</h1>
+  <p><strong>Faculty:</strong> {{ specialization.faculty.name }}</p>
+  <p><strong>Educational program:</strong> {{ specialization.educational_program }}</p>
+  <p><strong>Subjects:</strong></p>
+  <ul>
+    {% for subject in specialization.subjects.all %}
+      <li>{{ subject.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
