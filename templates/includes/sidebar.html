@@ -1,3 +1,17 @@
+<ul>
+  {% if user.is_authenticated %}
+    <li class="list-group-item">User: {{ user.username }}</li>
+    <li class="list-group-item">
+      <form method="post" action="{% url "logout" %}" style="display:inline">
+        {% csrf_token %}
+        <input type="submit" value="Logout" class="btn btn-link p-0">
+      </form>
+    </li>
+  {% else %}
+    <li class="list-group-item"><a href="{% url "login" %}">Login</a></li>
+  {% endif %}
+</ul>
+<br>
 <ul class="sidebar1">
   <li class="list-group-item"><a href="{% url "university_app:index" %}">Home</a></li>
   <li class="list-group-item"><a href="{% url "university_app:specializations-list" %}">Specializations</a></li>
