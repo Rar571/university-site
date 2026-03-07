@@ -1,6 +1,6 @@
-<ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Specializations</a></li>
-  <li><a href="#">Teachers</a></li>
-  <li><a href="#">Students</a></li>
+<ul class="sidebar1">
+  <li class="list-group-item"><a href="{% url "university_app:index" %}">Home</a></li>
+  <li class="list-group-item"><a href="{% url "university_app:specializations-list" %}">Specializations</a></li>
+  <li class="list-group-item"><a href="{% url "university_app:teachers-list" %}">Teachers</a></li>
+  <li class="list-group-item"><a href="{% url "university_app:students-list" %}">Students</a></li>
 </ul>
