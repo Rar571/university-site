@@ -6,15 +6,25 @@ class Faculty(models.Model):
     name = models.CharField(max_length=255, unique=True)
     time_to_study = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Specialization(models.Model):
     name = models.CharField(max_length=255)
+    educational_program = models.CharField(max_length=255)
     subjects = models.ManyToManyField("Subject", related_name="specializations_subjects")
     faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="specializations_faculty")
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Subject(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Teacher(models.Model):
@@ -36,3 +46,6 @@ class Student(AbstractUser):
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)
     amount_of_students = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.name}"
