@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'university_app.context_processors.cfg_assets_root',
             ],
         },
     },
@@ -120,6 +121,8 @@ AUTH_USER_MODEL = 'university_app.Student'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+ASSETS_ROOT = "/static/assets"
 
 LOGIN_REDIRECT_URL = "/"
 
