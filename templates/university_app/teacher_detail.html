@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ teacher.name }} {{ teacher.surname }}</h1>
+  <h1>{{ teacher.name }} {{ teacher.surname }}
+    <a href="{% url "university_app:teacher-delete" pk=teacher.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+    <a href="{% url "university_app:teacher-update" pk=teacher.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h1>
   <p><strong>Specialization:</strong> {{ teacher.specialization.name }}</p>
   <p><strong>Work experience:</strong> {{ teacher.work_experience }}</p>
   <p><strong>The subjects he teaches:</strong></p>

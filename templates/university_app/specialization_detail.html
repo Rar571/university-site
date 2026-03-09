@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ specialization.name }}</h1>
+  <h1>{{ specialization.name }}
+    <a href="{% url "university_app:specialization-delete" pk=specialization.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+    <a href="{% url "university_app:specialization-update" pk=specialization.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h1>
   <p><strong>Faculty:</strong> {{ specialization.faculty.name }}</p>
   <p><strong>Educational program:</strong> {{ specialization.educational_program }}</p>
   <p><strong>Subjects:</strong></p>

@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from university_app.forms import StudentCreationForm, TeacherForm, StudentUpdateForm, StudentSearchForm, TeacherSearchForm, SpecializationSearchForm
 from university_app.models import Faculty, Specialization, Subject, Teacher, Student, Group
 
 
@@ -34,22 +36,119 @@ def index(request: HttpRequest) -> HttpResponse:
 class StudentListView(LoginRequiredMixin, generic.ListView):
     model = Student
 
+    paginate_by = 5
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context["search_form"] = StudentSearchForm(self.request.GET)
+        return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        id = self.request.GET.get("id", "")
+        if id:
+            return qs.filter(id__icontains=id)
+        return qs
+
 
 class StudentDetailView(LoginRequiredMixin, generic.DetailView):
     model = Student
 
 
+class StudentCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Student
+    form_class = StudentCreationForm
+    success_url = reverse_lazy("university_app:students-list")
+
+
+class StudentUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Student
+    form_class = StudentUpdateForm
+    success_url = reverse_lazy("university_app:students-list")
+
+
+class StudentDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Student
+    success_url = reverse_lazy("university_app:student-delete")
+
+
 class TeacherListView(LoginRequiredMixin, generic.ListView):
     model = Teacher
+    paginate_by = 5
 
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(TeacherListView, self).get_context_data(**kwargs)
+        context["search_form"] = TeacherSearchForm(self.request.GET)
+        return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        id = self.request.GET.get("id", "")
+        if id:
+            return qs.filter(id__icontains=id)
+        return qs
 
 class TeacherDetailView(LoginRequiredMixin, generic.DetailView):
     model = Teacher
 
 
+class TeacherCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Teacher
+    form_class = TeacherForm
+    success_url = reverse_lazy("university_app:teachers-list")
+
+
+class TeacherUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Teacher
+    form_class = TeacherForm
+    success_url = reverse_lazy("university_app:teachers-list")
+
+
+class TeacherDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Teacher
+    success_url = reverse_lazy("university_app:teachers-list")
+
+
+
 class SpecializationListView(LoginRequiredMixin, generic.ListView):
     model = Specialization
+    paginate_by = 5
+
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(SpecializationListView, self).get_context_data(**kwargs)
+        context["search_form"] = SpecializationSearchForm(self.request.GET)
+        return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        name = self.request.GET.get("name", "")
+        if name:
+            return qs.filter(name__icontains=name)
+        return qs
 
 
 class SpecializationDetailView(LoginRequiredMixin, generic.DetailView):
     model = Specialization
+
+
+class SpecializationCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Specialization
+    fields = "__all__"
+    success_url = reverse_lazy("university_app:specializations-list")
+
+
+class SpecializationUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Specialization
+    fields = "__all__"
+    success_url = reverse_lazy("university_app:specializations-list")
+
+
+class SpecializationDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Specialization
+    success_url = reverse_lazy("university_app:specializations-list")
+
