@@ -7,7 +7,7 @@ from university_app.views import (
     SpecializationListView,
     StudentDetailView,
     TeacherDetailView,
-    SpecializationDetailView, StudentCreateView, TeacherCreateView, SpecializationCreateView, StudentUpdateView, TeacherUpdateView, SpecializationUpdateView, StudentDeleteView, SpecializationDeleteView, TeacherDeleteView,
+    SpecializationDetailView, StudentCreateView, TeacherCreateView, SpecializationCreateView, StudentUpdateView, TeacherUpdateView, SpecializationUpdateView, StudentDeleteView, SpecializationDeleteView, TeacherDeleteView, login_view, register_view,
 )
 
 urlpatterns = [
@@ -27,6 +27,8 @@ urlpatterns = [
     path("students/<int:pk>/delete", StudentDeleteView.as_view(), name="student-delete"),
     path("teachers/<int:pk>/delete/", TeacherDeleteView.as_view(), name="teacher-delete"),
     path("specializations/<int:pk>/delete", SpecializationDeleteView.as_view(), name="specialization-delete"),
+    path("register/", register_view, name="register"),
+    path("login/", login_view, name="login"),
 
 ]
 

@@ -36,7 +36,7 @@ def index(request: HttpRequest) -> HttpResponse:
 class StudentListView(LoginRequiredMixin, generic.ListView):
     model = Student
 
-    paginate_by = 5
+    paginate_by = 8
     def get_context_data(
         self, *, object_list = ..., **kwargs
     ):
@@ -70,12 +70,12 @@ class StudentUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class StudentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Student
-    success_url = reverse_lazy("university_app:student-delete")
+    success_url = reverse_lazy("university_app:students-list")
 
 
 class TeacherListView(LoginRequiredMixin, generic.ListView):
     model = Teacher
-    paginate_by = 5
+    paginate_by = 8
 
     def get_context_data(
         self, *, object_list = ..., **kwargs
@@ -115,7 +115,7 @@ class TeacherDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class SpecializationListView(LoginRequiredMixin, generic.ListView):
     model = Specialization
-    paginate_by = 5
+    paginate_by = 8
 
     def get_context_data(
         self, *, object_list = ..., **kwargs
@@ -152,3 +152,10 @@ class SpecializationDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Specialization
     success_url = reverse_lazy("university_app:specializations-list")
 
+
+def register_view(request: HttpRequest) -> HttpResponse:
+    return render(request, "registration/register.html")
+
+
+def login_view(request: HttpRequest) -> HttpResponse:
+    return render(request, "registration/login.html")

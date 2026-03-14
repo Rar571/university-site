@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
 {% block content %}
-  <h1>Delete student?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+  <div class="divv background">
+    <h1>Delete student?</h1>
+    <div class="mt-3">
+      <form action="" method="post">
+        {% csrf_token %}
+          <input type="submit" value="Yes" class="btn btn-danger btnt">
+          <a href="{% url "university_app:student-detail" pk=student.id %}" class="btn btn-secondary btnt">Cancel</a>
+      </form>
+    </div>
+  </div>
 {% endblock %}
