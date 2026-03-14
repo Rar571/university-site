@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
@@ -32,7 +31,7 @@ class TeacherForm(forms.ModelForm):
 class StudentUpdateForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields =["first_name", "faculty", "specialization", "form_of_study", "current_rating", "group"]
+        fields =["first_name", "last_name", "faculty", "specialization", "form_of_study", "current_rating", "group"]
 
 
 class StudentSearchForm(forms.Form):

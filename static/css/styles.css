@@ -1,4 +1,49 @@
 .sidebar1 {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;}
+
+.sidebar-item {
+    border: 1px solid dodgerblue;
+}
+
+.other_pages_image {
+    background-image: url("../images/5289804339234938364 (1).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.background {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(30,144,255,0.4);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.text1 {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.divv {
+    padding-left: 10px;
+    font-family: 'Merriweather', 'Times New Roman', serif;
+}
+
+.btnt {
+    margin-bottom: 20px;
+}
+
+.text2 {
+    color: black;
 }

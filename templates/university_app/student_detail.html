@@ -1,18 +1,25 @@
 {% extends "base.html" %}
 
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
 {% block content %}
-  <h1>{{ student.first_name }} {{ student.last_name }}
-    <a href="{% url "university_app:student-delete" pk=student.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-    <a href="{% url "university_app:student-update" pk=student.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
-    </div>
-  </h1>
-  <p><strong>Faculty:</strong> {{ student.faculty.name }} (time to study: {{ student.faculty.time_to_study }} years)</p>
-  <p><strong>Specialization:</strong> {{ student.specialization.name }}</p>
-  <p><strong>Form of study:</strong> {{ student.form_of_study }}</p>
-  <p><strong>Current rating:</strong> {{ student.current_rating }} points</p>
-  <p><strong>Group:</strong> {{ student.group.name }}</p>
+  <div class="background divv">
+      <div>
+        <h1 class="text1">{{ student.first_name }} {{ student.last_name }}
+          <a href="{% url "university_app:student-delete" pk=student.id %}" class="btn btn-danger">
+            🗑
+          </a>
+          <a href="{% url "university_app:student-update" pk=student.id %}" class="btn btn-secondary">
+            🖊
+          </a>
+      </h1>
+      </div>
+      <p><strong>Faculty:</strong> {{ student.faculty.name }} (time to study: {{ student.faculty.time_to_study }} years)</p>
+      <p><strong>Specialization:</strong> {{ student.specialization.name }}</p>
+      <p><strong>Form of study:</strong> {{ student.form_of_study }}</p>
+      <p><strong>Current rating:</strong> {{ student.current_rating }} points</p>
+      <p><strong>Group:</strong> {{ student.group.name }}</p>
+  </div>
 {% endblock %}
