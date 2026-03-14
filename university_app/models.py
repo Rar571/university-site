@@ -4,7 +4,7 @@ from django.db import models
 
 class Faculty(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    time_to_study = models.IntegerField()
+    study_time = models.IntegerField()
 
     def __str__(self):
         return f"{self.name}"
@@ -16,12 +16,18 @@ class Specialization(models.Model):
     subjects = models.ManyToManyField("Subject", related_name="specializations_subjects")
     faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="specializations_faculty")
 
+    class Meta:
+        ordering = ["id"]
+
     def __str__(self):
         return f"{self.name}"
 
 
 class Subject(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ["id"]
 
     def __str__(self):
         return f"{self.name}"
@@ -31,7 +37,7 @@ class Teacher(models.Model):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
     specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="teachers_specialization")
-    subjects = models.ManyToManyField(Subject, related_name="teachers")
+    subjects = models.ManyToManyField(Subject, related_name="teachers", blank=True)
     work_experience = models.CharField(max_length=255)
 
 
@@ -42,6 +48,8 @@ class Student(AbstractUser):
     current_rating = models.PositiveIntegerField(default=0)
     group = models.ForeignKey("Group", on_delete=models.PROTECT, related_name="students_group", null=True)
 
+    class Meta:
+        ordering = ["id"]
 
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)
