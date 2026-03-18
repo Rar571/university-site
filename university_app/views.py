@@ -153,9 +153,10 @@ class SpecializationDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("university_app:specializations-list")
 
 
-def register_view(request: HttpRequest) -> HttpResponse:
-    return render(request, "registration/register.html")
+def register_view(request):
+    form = StudentCreationForm(request.POST or None)
+    return render(request, "registration/register.html", {"form": form})
 
 
-def login_view(request: HttpRequest) -> HttpResponse:
+def login_view(request):
     return render(request, "registration/login.html")
