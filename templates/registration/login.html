@@ -32,8 +32,12 @@
 
                 <form method="post" action="" role="form">
                   {% csrf_token %}
-
-                  {{ form|crispy }}
+                  <label class="mb-3">
+                    {{ form.username }}
+                  </label>
+                  <label class="mb-3">
+                    {{ form.password }}
+                  </label>
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Remember me</label>
@@ -59,7 +63,7 @@
                 <img class="max-width-500 w-100 position-relative z-index-2" src="{{ ASSETS_ROOT }}/img/illustrations/chat.png">
               </div>
               <h4 class="mt-5 text-white font-weight-bolder">
-                University System
+                University site
               </h4>
               <p class="text-white">
                 &copy; Ruslan Stadnyk

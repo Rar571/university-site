@@ -17,11 +17,11 @@
 
 .background {
     background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(30,144,255,0.4);
+    backdrop-filter: blur(15px);
+    border: 3px solid royalblue;
     margin-top: 20px;
-    padding: 20px;
-    border-radius: 30px;
+    padding: 10px;
+    border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
@@ -46,4 +46,16 @@
 
 .text2 {
     color: black;
+    font-weight: bold;
+    font-family: 'Merriweather', 'Times New Roman', serif;
 }
+
+.item1 {
+    display: block;
+    font-weight: bold;
+    padding: 8px 12px 8px 8px;
+    list-style: none;
+    text-align: left;
+    font-family: 'Merriweather', 'Times New Roman', serif;
+}
+
