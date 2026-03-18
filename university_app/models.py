@@ -1,10 +1,11 @@
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
 class Faculty(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    study_time = models.IntegerField()
+    study_time = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
     def __str__(self):
         return f"{self.name}"
@@ -38,14 +39,19 @@ class Teacher(models.Model):
     surname = models.CharField(max_length=255)
     specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="teachers_specialization")
     subjects = models.ManyToManyField(Subject, related_name="teachers", blank=True)
-    work_experience = models.CharField(max_length=255)
+    work_experience = models.PositiveIntegerField(default=0)
 
 
 class Student(AbstractUser):
+    form_of_study_choices = [
+        ("full_time", "Full-time"),
+        ("part_time", "Part-time"),
+        ("distance", "Distance-learning")
+    ]
     faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="students_faculty", null=True)
     specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="students_specialization", null=True)
-    form_of_study = models.CharField(max_length=255)
-    current_rating = models.PositiveIntegerField(default=0)
+    form_of_study = models.CharField(max_length=255, choices=form_of_study_choices)
+    current_rating = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(100)])
     group = models.ForeignKey("Group", on_delete=models.PROTECT, related_name="students_group", null=True)
 
     class Meta:
