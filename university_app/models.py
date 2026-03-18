@@ -41,6 +41,9 @@ class Teacher(models.Model):
     subjects = models.ManyToManyField(Subject, related_name="teachers", blank=True)
     work_experience = models.PositiveIntegerField(default=0)
 
+    def __str__(self):
+        return f"{self.name} {self.surname}"
+
 
 class Student(AbstractUser):
     form_of_study_choices = [
@@ -56,6 +59,10 @@ class Student(AbstractUser):
 
     class Meta:
         ordering = ["id"]
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
 
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)

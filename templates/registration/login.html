@@ -32,12 +32,7 @@
 
                 <form method="post" action="" role="form">
                   {% csrf_token %}
-                  <label class="mb-3">
-                    {{ form.username }}
-                  </label>
-                  <label class="mb-3">
-                    {{ form.password }}
-                  </label>
+                  {{ form|crispy }}
                   <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Remember me</label>
