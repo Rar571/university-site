@@ -1,9 +1,9 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -154,11 +154,26 @@ class SpecializationDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("university_app:specializations-list")
 
 
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
+
 def register_view(request):
     form = StudentCreationForm(request.POST or None)
+
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("university_app:index")
     return render(request, "registration/register.html", {"form": form})
 
 
 def login_view(request):
     form = AuthenticationForm(request, data=request.POST or None)
+    if form.is_valid():
+        user = form.get_user()
+        login(request, user)
+        return redirect("university_app:index")
     return render(request, "registration/login.html", {"form": form})
