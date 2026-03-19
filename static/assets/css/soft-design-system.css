@@ -5765,7 +5765,10 @@ textarea.form-control-lg {
   color: #252f40 !important; }
 
 .text-white {
-  color: #fff !important;}
+ -webkit-text-stroke: 5px black !important;
+    text-stroke: 5px black !important;
+  color: #fff !important;
+}
 
 .text-body {
   color: #67748e !important; }
