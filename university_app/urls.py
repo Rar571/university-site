@@ -7,7 +7,18 @@ from university_app.views import (
     SpecializationListView,
     StudentDetailView,
     TeacherDetailView,
-    SpecializationDetailView, StudentCreateView, TeacherCreateView, SpecializationCreateView, StudentUpdateView, TeacherUpdateView, SpecializationUpdateView, StudentDeleteView, SpecializationDeleteView, TeacherDeleteView, login_view, register_view,
+    SpecializationDetailView,
+    StudentCreateView,
+    TeacherCreateView,
+    SpecializationCreateView,
+    StudentUpdateView,
+    TeacherUpdateView,
+    SpecializationUpdateView,
+    StudentDeleteView,
+    SpecializationDeleteView,
+    TeacherDeleteView,
+    login_view,
+    register_view,
 )
 
 urlpatterns = [

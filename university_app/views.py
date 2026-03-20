@@ -7,8 +7,20 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from university_app.forms import StudentCreationForm, TeacherForm, StudentUpdateForm, StudentSearchForm, TeacherSearchForm, SpecializationSearchForm
-from university_app.models import Faculty, Specialization, Subject, Teacher, Student, Group
+from university_app.forms import (
+    StudentCreationForm,
+    TeacherForm,
+    StudentUpdateForm,
+    StudentSearchForm,
+    TeacherSearchForm,
+    SpecializationSearchForm)
+from university_app.models import (
+    Faculty,
+    Specialization,
+    Subject,
+    Teacher,
+    Student,
+    Group)
 
 
 @login_required
