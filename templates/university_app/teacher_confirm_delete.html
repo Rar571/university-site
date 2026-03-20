@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
+{% block content %}
+  <div class="divv background">
+    <h1>Delete teacher?</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Yes" class="btn btn-danger btnt">
+    </form>
+  </div>
+{% endblock %}

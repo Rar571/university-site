@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
+{% block content %}
+  <div class="background divv">
+    <h1 class="text1">{{ teacher.name }} {{ teacher.surname }}
+      <a href="{% url "university_app:teacher-delete" pk=teacher.id %}" class="btn btn-danger">
+        🗑
+      </a>
+      <a href="{% url "university_app:teacher-update" pk=teacher.id %}" class="btn btn-secondary">
+        🖊
+      </a>
+    </h1>
+    <p><strong>Specialization:</strong> {{ teacher.specialization.name }}</p>
+    <p><strong>Work experience:</strong> {{ teacher.work_experience }} year{{ teacher.work_experience|pluralize }}</p>
+    <p><strong>The subjects he teaches:</strong></p>
+    <ul>
+      {% for subject in teacher.subjects.all %}
+        <li>{{ subject.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+.sidebar1 {
+    margin-top: 20px;
+    font-size: 18px;}
+
+.sidebar-item {
+    border: 1px solid dodgerblue;
+}
+
+.other_pages_image {
+    background-image: url("../images/5289804339234938364 (1).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.background {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    border: 3px solid royalblue;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.text1 {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.divv {
+    padding-left: 10px;
+    font-family: 'Merriweather', 'Times New Roman', serif;
+}
+
+.btnt {
+    margin-bottom: 20px;
+}
+
+.text2 {
+    color: black;
+    font-weight: bold;
+    font-family: 'Merriweather', 'Times New Roman', serif;
+}
+
+.item1 {
+    display: block;
+    font-weight: bold;
+    padding: 8px 12px 8px 8px;
+    list-style: none;
+    text-align: left;
+    font-family: 'Merriweather', 'Times New Roman', serif;
+}
+

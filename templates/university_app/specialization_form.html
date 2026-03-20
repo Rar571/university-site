@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
+{% block content %}
+  <div class="divv background">
+    <h1>{{ object|yesno:"Update,Create" }} specialization</h1>
+    <form method="post" action="" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit" class="btn btn-primary btnt">
+    </form>
+  </div>
+{% endblock %}

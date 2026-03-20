@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
+{% block content %}
+  <div class="background divv">
+      <h1 class="text1">
+        Specializations list
+        <a href="{% url "university_app:specialization-create" %}" class="btn btn-primary link-to-page">Create</a>
+      </h1>
+      <div class="center">
+        <form action="" method="get" class="form-inline">
+          {{ search_form|crispy }}
+          <input type="submit" value="🔍" class="btn btn-secondary">
+        </form>
+      </div>
+      {% if specialization_list %}
+        <table class="table">
+          <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Educational program</td>
+          </tr>
+          {% for specialization in specialization_list %}
+            <tr>
+              <td>{{ specialization.id }}</td>
+              <td><a href="{% url "university_app:specialization-detail" pk=specialization.id %}">{{ specialization.name }}</a></td>
+              <td>{{ specialization.educational_program }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+  </div>
+{% endblock %}

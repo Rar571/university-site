@@ -1,6 +1,13 @@
-<ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Specializations</a></li>
-  <li><a href="#">Teachers</a></li>
-  <li><a href="#">Students</a></li>
-</ul>
+<div class="background">
+  <ul class="item1">
+    <li class="item1">User: <a href="{{ user.get_absolute_url }}" class="text2">{{ user.get_username }}</></li>
+    <li class="item1"><a href="{% url "university_app:login" %}" class="text2">Logout</a></li>
+`
+    <br>
+
+    <li class="item1"><a href="{% url 'university_app:index' %}" class="text2">Home</a></li>
+    <li class="item1"><a href="{% url 'university_app:students-list' %}" class="text2">Students list</a></li>
+    <li class="item1"><a href="{% url 'university_app:teachers-list' %}" class="text2">Teachers list</a></li>
+    <li class="item1"><a href="{% url 'university_app:specializations-list' %}" class="text2">Specializations list</a></li>
+  </ul>
+</div>

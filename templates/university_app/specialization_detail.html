@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_class %}
+  other_pages_image
+{% endblock %}
+
+{% block content %}
+  <div class="background divv">
+    <h1 class="text1">{{ specialization.name }}
+      <a href="{% url "university_app:specialization-delete" pk=specialization.id %}" class="btn btn-danger link-to-page">
+        🗑
+      </a>
+      <a href="{% url "university_app:specialization-update" pk=specialization.id %}" class="btn btn-secondary link-to-page">
+        🖊
+      </a>
+    </h1>
+    <p><strong>Faculty:</strong> {{ specialization.faculty.name }}</p>
+    <p><strong>Educational program:</strong> {{ specialization.educational_program }}</p>
+    <p><strong>Subjects:</strong></p>
+    <ul>
+      {% for subject in specialization.subjects.all %}
+        <li>{{ subject.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
