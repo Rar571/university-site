@@ -3,3 +3,4 @@ identifier.sqlite
 .idea/
 __pycache__/
 .env
+*.pyc
