@@ -5765,8 +5765,6 @@ textarea.form-control-lg {
   color: #252f40 !important; }
 
 .text-white {
- -webkit-text-stroke: 5px black !important;
-    text-stroke: 5px black !important;
   color: #fff !important;
 }
 
