@@ -51,11 +51,11 @@ class Student(AbstractUser):
         ("part_time", "Part-time"),
         ("distance", "Distance-learning")
     ]
-    faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="students_faculty", null=True)
-    specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="students_specialization", null=True)
-    form_of_study = models.CharField(max_length=255, choices=form_of_study_choices)
-    current_rating = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(100)])
-    group = models.ForeignKey("Group", on_delete=models.PROTECT, related_name="students_group", null=True)
+    faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="students_faculty", null=True, blank=True)
+    specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="students_specialization", null=True, blank=True)
+    form_of_study = models.CharField(max_length=255, choices=form_of_study_choices, null=True, blank=True)
+    current_rating = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(100)], null=True, blank=True)
+    group = models.ForeignKey("Group", on_delete=models.PROTECT, related_name="students_group", null=True, blank=True)
 
     class Meta:
         ordering = ["id"]
