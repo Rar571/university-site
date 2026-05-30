@@ -5765,6 +5765,7 @@ textarea.form-control-lg {
   color: #252f40 !important; }
 
 .text-white {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
   color: #fff !important;
 }
 
