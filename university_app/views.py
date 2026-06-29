@@ -98,11 +98,12 @@ class TeacherListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
-        qs = super().get_queryset()
-        id = self.request.GET.get("id", "")
-        if id:
-            return qs.filter(id__icontains=id)
+        qs = super().get_queryset().filter(is_superuser=False, is_staff=False)
+        student_id = self.request.GET.get("id", "").strip()
+        if student_id:
+            qs = qs.filter(id__icontains=student_id)
         return qs
+
 
 class TeacherDetailView(LoginRequiredMixin, generic.DetailView):
     model = Teacher
