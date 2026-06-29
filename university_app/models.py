@@ -12,8 +12,8 @@ class Faculty(models.Model):
 
 
 class Specialization(models.Model):
-    name = models.CharField(max_length=255)
-    educational_program = models.CharField(max_length=255)
+    name = models.CharField(max_length=100)
+    educational_program = models.CharField(max_length=100)
     subjects = models.ManyToManyField("Subject", related_name="specializations_subjects")
     faculty = models.ForeignKey(Faculty, on_delete=models.PROTECT, related_name="specializations_faculty")
 
@@ -35,8 +35,8 @@ class Subject(models.Model):
 
 
 class Teacher(models.Model):
-    name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
+    name = models.CharField(max_length=64)
+    surname = models.CharField(max_length=64)
     specialization = models.ForeignKey(Specialization, on_delete=models.PROTECT, related_name="teachers_specialization")
     subjects = models.ManyToManyField(Subject, related_name="teachers", blank=True)
     work_experience = models.PositiveIntegerField(default=0)
@@ -65,7 +65,7 @@ class Student(AbstractUser):
 
 
 class Group(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=64, unique=True)
     amount_of_students = models.PositiveIntegerField()
 
     def __str__(self):

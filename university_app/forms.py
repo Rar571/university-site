@@ -33,13 +33,17 @@ class TeacherForm(forms.ModelForm):
     )
     class Meta:
         model = Teacher
-        fields = "__all__"
+        fields = ["name", "surname", "specialization", "subjects", "work_experience"]
+        labels = {
+            "subjects": "Teaching subjects",
+            "work_experience": "Work experience (in years)",
+        }
 
 
 class StudentUpdateForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields =["first_name", "last_name", "faculty", "specialization", "form_of_study", "current_rating", "group"]
+        fields = ["first_name", "last_name", "faculty", "specialization", "form_of_study", "current_rating", "group"]
 
 
 class StudentSearchForm(forms.Form):
