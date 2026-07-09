@@ -77,7 +77,7 @@ university-site/
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/your-username/university-site.git
+git clone https://github.com/Rar571/university-site.git
 cd university-site
 ```
 
