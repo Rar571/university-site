@@ -1,6 +1,6 @@
 ﻿# 🎓 University Site
 
-University Site is a web application for managing university data.  
+University Site is a Django web application for managing university data.  
 The project implements CRUD operations for students, teachers, and specializations.
 
 ---
