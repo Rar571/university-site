@@ -43,7 +43,7 @@ The application allows users to:
 | **HTML5** | Markup |
 | **CSS3** | Styling |
 | **SQLite** | Database |
-| **Bootstrap** *(if used)* | UI components |
+| **Bootstrap** | UI components |
 
 ---
 
